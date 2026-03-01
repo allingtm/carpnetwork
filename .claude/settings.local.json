@@ -16,7 +16,8 @@
       "Bash(flutter analyze)",
       "mcp__supabase__search_docs",
       "mcp__supabase__deploy_edge_function",
-      "mcp__supabase__list_edge_functions"
+      "mcp__supabase__list_edge_functions",
+      "Bash(npm install)"
     ]
   }
 }
