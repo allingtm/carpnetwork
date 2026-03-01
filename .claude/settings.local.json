@@ -8,7 +8,11 @@
       "Bash(npm install inngest sharp @supabase/supabase-js @aws-sdk/client-s3)",
       "Bash(npm install -D typescript @types/node)",
       "Bash(flutter pub get)",
-      "Bash(npx tsc --noEmit)"
+      "Bash(npx tsc --noEmit)",
+      "mcp__supabase__apply_migration",
+      "mcp__supabase__execute_sql",
+      "mcp__supabase__get_advisors",
+      "mcp__supabase__list_migrations"
     ]
   }
 }
