@@ -15,9 +15,12 @@ import '../screens/groups/create_group_screen.dart';
 import '../screens/groups/group_chat_screen.dart';
 import '../screens/groups/group_feed_screen.dart';
 import '../screens/groups/invite_screen.dart';
+import '../screens/groups/group_settings_screen.dart';
 import '../screens/groups/members_screen.dart';
+import '../screens/profile/profile_screen.dart';
 import '../screens/shell_screen.dart';
 import '../screens/stub_screen.dart';
+import '../screens/subscription/paywall_screen.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 
@@ -83,8 +86,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
       GoRoute(
         path: '/subscription',
-        builder: (context, state) =>
-            const StubScreen(title: 'Subscription'),
+        builder: (context, state) => const PaywallScreen(),
       ),
       // Create group (outside shell for full-screen)
       GoRoute(
@@ -152,8 +154,9 @@ final routerProvider = Provider<GoRouter>((ref) {
                   ),
                   GoRoute(
                     path: 'settings',
-                    builder: (context, state) =>
-                        const StubScreen(title: 'Group Settings'),
+                    builder: (context, state) => GroupSettingsScreen(
+                      groupId: state.pathParameters['groupId']!,
+                    ),
                   ),
                 ],
               ),
@@ -184,8 +187,7 @@ final routerProvider = Provider<GoRouter>((ref) {
             routes: [
               GoRoute(
                 path: '/profile',
-                builder: (context, state) =>
-                    const StubScreen(title: 'Profile'),
+                builder: (context, state) => const ProfileScreen(),
               ),
             ],
           ),

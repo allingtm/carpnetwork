@@ -1,5 +1,7 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import '../notifications/notification_service.dart';
+
 class AuthRepository {
   final SupabaseClient _client;
 
@@ -29,8 +31,10 @@ class AuthRepository {
     return _client.auth.signInWithOtp(email: email);
   }
 
-  Future<void> signOut() {
-    return _client.auth.signOut();
+  /// Sign out: cleans up FCM token, then signs out of Supabase.
+  Future<void> signOut() async {
+    await NotificationService.cleanUpOnSignOut();
+    await _client.auth.signOut();
   }
 
   User? get currentUser => _client.auth.currentUser;
