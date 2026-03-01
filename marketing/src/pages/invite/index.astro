@@ -1,7 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-
-const { token } = Astro.params;
 ---
 
 <BaseLayout title="Join a Fishing Group" description="You've been invited to join a fishing group on Carp.Network.">
@@ -32,10 +30,15 @@ const { token } = Astro.params;
     </div>
   </section>
 
-  <script define:vars={{ token }}>
-    // Attempt deep link — Universal Links / App Links will intercept if app is installed
-    const deepLink = `https://carp.network/invite/${token}`;
-    window.location.href = deepLink;
+  <script>
+    // Extract token from URL path: /invite/abc123 → abc123
+    const pathParts = window.location.pathname.split('/');
+    const token = pathParts[pathParts.length - 1];
+
+    if (token && token !== 'invite') {
+      // Attempt deep link — Universal Links / App Links will intercept if app is installed
+      window.location.href = `https://carp.network/invite/${token}`;
+    }
 
     // If we're still here after 1.5s, the app didn't open — show download prompt
     setTimeout(() => {

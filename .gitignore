@@ -36,6 +36,9 @@ inngest/node_modules/
 inngest/dist/
 inngest/.env
 
+# Firebase (service account keys — NEVER commit)
+firebase/
+
 # Supabase
 supabase/.env.local
 supabase/.temp/
