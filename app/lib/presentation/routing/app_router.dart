@@ -7,7 +7,15 @@ import '../../domain/enums/subscription_status.dart';
 import '../screens/auth/invite_landing_screen.dart';
 import '../screens/auth/login_screen.dart';
 import '../screens/auth/register_screen.dart';
+import '../screens/catches/catch_detail_screen.dart';
 import '../screens/catches/catch_form_screen.dart';
+import '../screens/catches/repository_screen.dart';
+import '../screens/dashboard/dashboard_screen.dart';
+import '../screens/groups/create_group_screen.dart';
+import '../screens/groups/group_chat_screen.dart';
+import '../screens/groups/group_feed_screen.dart';
+import '../screens/groups/invite_screen.dart';
+import '../screens/groups/members_screen.dart';
 import '../screens/shell_screen.dart';
 import '../screens/stub_screen.dart';
 
@@ -78,6 +86,11 @@ final routerProvider = Provider<GoRouter>((ref) {
         builder: (context, state) =>
             const StubScreen(title: 'Subscription'),
       ),
+      // Create group (outside shell for full-screen)
+      GoRoute(
+        path: '/groups/new',
+        builder: (context, state) => const CreateGroupScreen(),
+      ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) =>
             ShellScreen(navigationShell: navigationShell),
@@ -87,8 +100,7 @@ final routerProvider = Provider<GoRouter>((ref) {
             routes: [
               GoRoute(
                 path: '/dashboard',
-                builder: (context, state) =>
-                    const StubScreen(title: 'Dashboard'),
+                builder: (context, state) => const DashboardScreen(),
               ),
             ],
           ),
@@ -97,25 +109,33 @@ final routerProvider = Provider<GoRouter>((ref) {
             routes: [
               GoRoute(
                 path: '/groups/:groupId',
-                builder: (context, state) => StubScreen(
-                  title:
-                      'Group ${state.pathParameters['groupId'] ?? ''}',
+                builder: (context, state) => GroupFeedScreen(
+                  groupId: state.pathParameters['groupId']!,
                 ),
                 routes: [
                   GoRoute(
                     path: 'chat',
-                    builder: (context, state) =>
-                        const StubScreen(title: 'Group Chat'),
+                    builder: (context, state) => GroupChatScreen(
+                      groupId: state.pathParameters['groupId']!,
+                    ),
                   ),
                   GoRoute(
                     path: 'members',
-                    builder: (context, state) =>
-                        const StubScreen(title: 'Members'),
+                    builder: (context, state) => MembersScreen(
+                      groupId: state.pathParameters['groupId']!,
+                    ),
+                  ),
+                  GoRoute(
+                    path: 'invite',
+                    builder: (context, state) => InviteScreen(
+                      groupId: state.pathParameters['groupId']!,
+                    ),
                   ),
                   GoRoute(
                     path: 'repository',
-                    builder: (context, state) =>
-                        const StubScreen(title: 'Group Repository'),
+                    builder: (context, state) => RepositoryScreen(
+                      groupId: state.pathParameters['groupId']!,
+                    ),
                   ),
                   GoRoute(
                     path: 'catch/new',
@@ -125,9 +145,9 @@ final routerProvider = Provider<GoRouter>((ref) {
                   ),
                   GoRoute(
                     path: 'catch/:id',
-                    builder: (context, state) => StubScreen(
-                      title:
-                          'Catch ${state.pathParameters['id'] ?? ''}',
+                    builder: (context, state) => CatchDetailScreen(
+                      groupId: state.pathParameters['groupId']!,
+                      catchId: state.pathParameters['id']!,
                     ),
                   ),
                   GoRoute(
