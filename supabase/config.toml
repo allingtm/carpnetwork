@@ -357,6 +357,18 @@ allow_dynamic_registration = false
 [functions.revenucat-webhook]
 verify_jwt = false
 
+[functions.cron-reconcile]
+verify_jwt = false
+# Schedule: daily at 04:00 UTC
+# Configure via Supabase Dashboard > Database > Cron Jobs:
+#   cron-reconcile: 0 4 * * *
+#   POST /functions/v1/cron-reconcile with header x-cron-secret: <CRON_SECRET>
+
+# Phase 2 stub — AI processing pipeline
+# [functions.cron-ai-processing]
+# verify_jwt = false
+# Schedule: every 15 minutes — */15 * * * *
+
 [edge_runtime]
 enabled = true
 # Supported request policies: `oneshot`, `per_worker`.

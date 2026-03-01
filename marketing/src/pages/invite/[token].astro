@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const { token } = Astro.params;
+---
+
+<BaseLayout title="Join a Fishing Group" description="You've been invited to join a fishing group on Carp.Network.">
+  <section style="text-align: center; padding: 80px 24px;">
+    <div class="container" style="max-width: 480px;">
+      <div style="font-size: 4rem; margin-bottom: 16px;">&#x1F3A3;</div>
+      <h1 style="font-size: 2rem; color: var(--deep-lake); margin-bottom: 12px;">
+        You've been invited!
+      </h1>
+      <p style="font-size: 1.1rem; color: var(--bark); margin-bottom: 32px;">
+        Someone invited you to join their fishing group on Carp.Network.
+      </p>
+
+      <div id="status" style="margin-bottom: 32px; padding: 16px; background: var(--white); border-radius: 8px;">
+        <p>Opening the app...</p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <a href="https://apps.apple.com/app/carp-network/id000000000"
+           style="display: block; background: #000; color: #fff; padding: 14px; border-radius: 8px; text-decoration: none; font-weight: 600;">
+          Download on the App Store
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.carpnetwork.app"
+           style="display: block; background: var(--deep-lake); color: #fff; padding: 14px; border-radius: 8px; text-decoration: none; font-weight: 600;">
+          Get it on Google Play
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ token }}>
+    // Attempt deep link — Universal Links / App Links will intercept if app is installed
+    const deepLink = `https://carp.network/invite/${token}`;
+    window.location.href = deepLink;
+
+    // If we're still here after 1.5s, the app didn't open — show download prompt
+    setTimeout(() => {
+      const status = document.getElementById('status');
+      if (status) {
+        status.innerHTML =
+          '<p>Looks like you don\'t have the app installed yet.</p>' +
+          '<p style="margin-top: 8px; font-size: 0.9rem; color: #666;">Download Carp.Network to join this fishing group.</p>';
+      }
+    }, 1500);
+  </script>
+</BaseLayout>

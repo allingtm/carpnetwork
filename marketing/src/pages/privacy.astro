@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Privacy Policy">
+  <section style="padding: 48px 24px;">
+    <div class="container" style="max-width: 720px;">
+      <h1 style="color: var(--deep-lake); margin-bottom: 24px;">Privacy Policy</h1>
+      <p style="color: #666; margin-bottom: 32px;">Last updated: March 2026</p>
+
+      <h2 style="margin-top: 32px; margin-bottom: 12px;">1. Data We Collect</h2>
+      <ul style="margin-left: 20px; margin-bottom: 16px;">
+        <li><strong>Account information:</strong> Email address, display name, and optional location.</li>
+        <li><strong>Catch reports:</strong> Species, weight, bait, rig, venue, conditions, and timestamps you submit.</li>
+        <li><strong>Photos:</strong> Images you upload with your catch reports. EXIF metadata (including GPS coordinates) is automatically stripped on upload for your privacy.</li>
+        <li><strong>Messages:</strong> Text content sent within group chats.</li>
+        <li><strong>Device tokens:</strong> Firebase Cloud Messaging tokens for push notifications.</li>
+        <li><strong>Subscription data:</strong> Managed by RevenueCat; we receive subscription status but not payment card details.</li>
+      </ul>
+
+      <h2 style="margin-top: 32px; margin-bottom: 12px;">2. How We Use Your Data</h2>
+      <ul style="margin-left: 20px; margin-bottom: 16px;">
+        <li>To provide the core service: catch logging, group management, and messaging.</li>
+        <li>To sync data across your devices via our offline-first architecture.</li>
+        <li>To send push notifications about group activity you're subscribed to.</li>
+        <li>To generate AI-powered fishing insights (aggregated, anonymised patterns).</li>
+        <li>To manage your subscription status.</li>
+      </ul>
+
+      <h2 style="margin-top: 32px; margin-bottom: 12px;">3. Photo Privacy</h2>
+      <p style="margin-bottom: 16px;">
+        All photos are processed through our upload pipeline which strips EXIF metadata — including GPS
+        coordinates, camera model, and timestamps — before permanent storage. Photos are stored on
+        Cloudflare R2 with access controlled via time-limited presigned URLs.
+      </p>
+
+      <h2 style="margin-top: 32px; margin-bottom: 12px;">4. Data Sharing</h2>
+      <p style="margin-bottom: 16px;">
+        We do not sell your data. Your catch reports and messages are only visible to members of the
+        groups you belong to. We share data with the following service providers solely to operate the app:
+      </p>
+      <ul style="margin-left: 20px; margin-bottom: 16px;">
+        <li><strong>Supabase:</strong> Database and authentication hosting.</li>
+        <li><strong>Cloudflare:</strong> Photo storage (R2) and marketing site hosting.</li>
+        <li><strong>Firebase:</strong> Push notification delivery.</li>
+        <li><strong>RevenueCat:</strong> Subscription management.</li>
+        <li><strong>OpenWeather:</strong> Weather data enrichment for catch reports.</li>
+      </ul>
+
+      <h2 style="margin-top: 32px; margin-bottom: 12px;">5. Data Retention</h2>
+      <ul style="margin-left: 20px; margin-bottom: 16px;">
+        <li>Account data is retained while your account is active.</li>
+        <li>Stale device tokens are automatically pruned after 60 days of inactivity.</li>
+        <li>You may request deletion of your account and all associated data at any time.</li>
+      </ul>
+
+      <h2 style="margin-top: 32px; margin-bottom: 12px;">6. Your Rights (GDPR)</h2>
+      <p style="margin-bottom: 16px;">If you are in the EU/EEA, you have the right to:</p>
+      <ul style="margin-left: 20px; margin-bottom: 16px;">
+        <li>Access your personal data.</li>
+        <li>Rectify inaccurate data.</li>
+        <li>Request erasure of your data.</li>
+        <li>Object to or restrict processing.</li>
+        <li>Data portability.</li>
+      </ul>
+      <p>Contact us at <a href="mailto:privacy@carp.network">privacy@carp.network</a> to exercise these rights.</p>
+
+      <h2 style="margin-top: 32px; margin-bottom: 12px;">7. Contact</h2>
+      <p>For privacy-related enquiries: <a href="mailto:privacy@carp.network">privacy@carp.network</a></p>
+    </div>
+  </section>
+</BaseLayout>

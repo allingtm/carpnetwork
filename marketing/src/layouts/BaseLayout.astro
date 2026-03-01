@@ -1,0 +1,81 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Private fishing groups for serious anglers' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title} | Carp.Network</title>
+    <style is:global>
+      :root {
+        --deep-lake: #1b4d3e;
+        --reed-green: #6b8f71;
+        --sand: #f5f0e8;
+        --bark: #5c4033;
+        --alert-red: #c0392b;
+        --white: #ffffff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        color: #333;
+        line-height: 1.6;
+        background: var(--sand);
+      }
+
+      a {
+        color: var(--deep-lake);
+      }
+
+      .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <header style="background: var(--deep-lake); color: var(--white); padding: 16px 0;">
+      <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
+        <a href="/" style="color: var(--white); text-decoration: none; font-size: 1.25rem; font-weight: 700;">
+          Carp.Network
+        </a>
+        <nav style="display: flex; gap: 24px;">
+          <a href="/privacy" style="color: var(--white); text-decoration: none; font-size: 0.9rem;">Privacy</a>
+          <a href="/terms" style="color: var(--white); text-decoration: none; font-size: 0.9rem;">Terms</a>
+          <a href="/support" style="color: var(--white); text-decoration: none; font-size: 0.9rem;">Support</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer style="background: var(--bark); color: var(--white); padding: 32px 0; margin-top: 64px;">
+      <div class="container" style="text-align: center; font-size: 0.85rem; opacity: 0.85;">
+        <p>&copy; {new Date().getFullYear()} Carp.Network. All rights reserved.</p>
+        <p style="margin-top: 8px;">
+          <a href="/privacy" style="color: var(--white);">Privacy</a> &middot;
+          <a href="/terms" style="color: var(--white);">Terms</a> &middot;
+          <a href="/support" style="color: var(--white);">Support</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Support" description="Get help with Carp.Network — FAQs, contact, and troubleshooting.">
+  <section style="padding: 48px 24px;">
+    <div class="container" style="max-width: 720px;">
+      <h1 style="color: var(--deep-lake); margin-bottom: 24px;">Support</h1>
+      <p style="margin-bottom: 32px;">
+        Need help? Check the FAQs below or reach out to us directly.
+      </p>
+
+      <h2 style="margin-top: 32px; margin-bottom: 16px;">Contact</h2>
+      <p style="margin-bottom: 32px;">
+        Email us at <a href="mailto:support@carp.network">support@carp.network</a>
+        and we'll get back to you within 24 hours.
+      </p>
+
+      <h2 style="margin-top: 32px; margin-bottom: 16px;">Frequently Asked Questions</h2>
+
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="background: var(--white); padding: 20px; border-radius: 8px;">
+          <h3 style="color: var(--deep-lake); margin-bottom: 8px;">How does offline logging work?</h3>
+          <p>
+            Catch reports are saved locally on your device using an offline-first database.
+            When you regain connectivity, changes sync automatically to the cloud and to
+            other group members.
+          </p>
+        </div>
+
+        <div style="background: var(--white); padding: 20px; border-radius: 8px;">
+          <h3 style="color: var(--deep-lake); margin-bottom: 8px;">How do I invite someone to my group?</h3>
+          <p>
+            Go to your group, tap the invite button, and share the generated link. The recipient
+            can join from the link whether they have the app installed or not.
+          </p>
+        </div>
+
+        <div style="background: var(--white); padding: 20px; border-radius: 8px;">
+          <h3 style="color: var(--deep-lake); margin-bottom: 8px;">Can I cancel my subscription?</h3>
+          <p>
+            Yes. Manage your subscription through your Apple App Store or Google Play Store
+            account settings. Your access continues until the end of your current billing period.
+          </p>
+        </div>
+
+        <div style="background: var(--white); padding: 20px; border-radius: 8px;">
+          <h3 style="color: var(--deep-lake); margin-bottom: 8px;">Are my catch photos private?</h3>
+          <p>
+            Photos are only visible to members of the group where the catch was logged.
+            All EXIF metadata (including GPS) is stripped on upload for your privacy.
+          </p>
+        </div>
+
+        <div style="background: var(--white); padding: 20px; border-radius: 8px;">
+          <h3 style="color: var(--deep-lake); margin-bottom: 8px;">How do I delete my account?</h3>
+          <p>
+            Contact us at <a href="mailto:support@carp.network">support@carp.network</a>
+            and we'll delete your account and all associated data.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
