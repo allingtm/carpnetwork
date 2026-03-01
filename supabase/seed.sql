@@ -1,0 +1,2 @@
+-- Seed data for Carp.Network
+-- Rule sets and other initial data will go here

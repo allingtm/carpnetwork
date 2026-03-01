@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(flutter create --project-name carp_network --org com.carp.network --platforms ios,android app)",
+      "Bash(supabase init)",
+      "Bash(npx supabase --version)",
+      "Bash(npx supabase init)",
+      "Bash(npm install inngest sharp @supabase/supabase-js @aws-sdk/client-s3)",
+      "Bash(npm install -D typescript @types/node)",
+      "Bash(flutter pub get)",
+      "Bash(npx tsc --noEmit)"
+    ]
+  }
+}

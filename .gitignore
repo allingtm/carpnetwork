@@ -1,0 +1,47 @@
+# Environment files
+.env
+.env.*
+!.env.*.example
+.env.json
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# Flutter
+app/.dart_tool/
+app/.flutter-plugins-dependencies
+app/.pub-cache/
+app/.pub/
+app/build/
+app/coverage/
+app/**/doc/api/
+app/**/ios/Flutter/.last_build_id
+app/*.symbols
+app/*.map.json
+app/android/app/debug
+app/android/app/profile
+app/android/app/release
+
+# Node.js (Inngest)
+inngest/node_modules/
+inngest/dist/
+inngest/.env
+
+# Supabase
+supabase/.env.local
+supabase/.temp/
+
+# Misc
+*.log
+*.swp
+*.swo
+*~

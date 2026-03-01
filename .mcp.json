@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "supabase": {
+      "command": "cmd",
+      "args": ["/c", "npx", "-y", "@supabase/mcp-server-supabase@latest", "--access-token", "${SWSWEB2026_AUTH_TOKEN}", "--project-ref", "pfwysejzokajavhzpgdf"]
+    }
+  }
+}
