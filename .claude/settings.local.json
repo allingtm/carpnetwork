@@ -17,7 +17,14 @@
       "mcp__supabase__search_docs",
       "mcp__supabase__deploy_edge_function",
       "mcp__supabase__list_edge_functions",
-      "Bash(npm install)"
+      "Bash(npm install)",
+      "WebFetch(domain:supabase.com)",
+      "WebFetch(domain:pub.dev)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:getdutchie.github.io)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(dart run build_runner build --delete-conflicting-outputs)",
+      "Bash(dart pub cache list)"
     ]
   }
 }

@@ -7,6 +7,7 @@ import '../../domain/enums/subscription_status.dart';
 import '../screens/auth/invite_landing_screen.dart';
 import '../screens/auth/login_screen.dart';
 import '../screens/auth/register_screen.dart';
+import '../screens/catches/catch_form_screen.dart';
 import '../screens/shell_screen.dart';
 import '../screens/stub_screen.dart';
 
@@ -118,8 +119,9 @@ final routerProvider = Provider<GoRouter>((ref) {
                   ),
                   GoRoute(
                     path: 'catch/new',
-                    builder: (context, state) =>
-                        const StubScreen(title: 'Log Catch'),
+                    builder: (context, state) => CatchFormScreen(
+                      groupId: state.pathParameters['groupId']!,
+                    ),
                   ),
                   GoRoute(
                     path: 'catch/:id',
