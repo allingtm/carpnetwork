@@ -4,7 +4,6 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../../application/providers/auth_providers.dart';
 import '../../../data/auth/auth_repository.dart';
-import '../../../data/notifications/notification_service.dart';
 import '../../../domain/enums/subscription_status.dart';
 import '../../theme/app_theme.dart';
 
@@ -96,10 +95,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
     );
     if (confirm != true) return;
 
-    // Clean up push notification token
-    await NotificationService.cleanUpOnSignOut();
-
-    // Sign out via auth repository
+    // Sign out via auth repository (handles FCM cleanup internally)
     final authRepo = AuthRepository();
     await authRepo.signOut();
   }

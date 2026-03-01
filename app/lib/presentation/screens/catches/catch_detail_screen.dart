@@ -279,7 +279,7 @@ class CatchDetailScreen extends ConsumerWidget {
                             _DetailRow(
                               icon: Icons.cloud_outlined,
                               label: 'Cloud',
-                              value: '${c.cloudCover}%',
+                              value: c.cloudCover!,
                             ),
                           if (c.moonPhase != null)
                             _DetailRow(
@@ -327,7 +327,7 @@ class CatchDetailScreen extends ConsumerWidget {
   ) async {
     switch (action) {
       case 'edit':
-        context.go('/groups/$groupId/catch/new');
+        context.go('/groups/$groupId/catch/$catchId?edit=true');
       case 'delete':
         final confirm = await showDialog<bool>(
           context: context,

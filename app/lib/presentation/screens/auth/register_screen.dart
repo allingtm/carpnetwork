@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../../data/auth/auth_repository.dart';
 import '../../theme/app_theme.dart';
@@ -37,11 +38,23 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
     });
     try {
       final repo = AuthRepository();
-      await repo.signUp(
+      final response = await repo.signUp(
         email: _emailController.text.trim(),
         password: _passwordController.text,
         fullName: _fullNameController.text.trim(),
       );
+
+      // Auto-redeem invite token after successful signup
+      if (widget.inviteToken != null && response.session != null) {
+        try {
+          await Supabase.instance.client.functions.invoke(
+            'invite-redeem',
+            body: {'invite_token': widget.inviteToken},
+          );
+        } catch (_) {
+          // Invite redeem is best-effort — user can join later from link
+        }
+      }
     } catch (e) {
       setState(() => _error = e.toString());
     } finally {
